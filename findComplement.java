@@ -15,3 +15,19 @@ public class Main
 		System.out.println(result);
 	}
 }
+// this is slower
+class Solution {
+    public int findComplement(int num) {
+        String s = Integer.toBinaryString(num);
+        char c;
+        for (int i=0;i<s.length();i++) {
+            if (s.charAt(i)=='1') {
+                c='0';
+            } else {
+                c='1';
+            }
+            s=s.substring(0,i)+c+s.substring(i+1);
+        }
+        return Integer.parseInt(s, 2);
+    }
+}
